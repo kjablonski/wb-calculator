@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="manifest" href="manifest.json">
+<script src="https://cdn.plot.ly/plotly-latest.min.js" charset="utf-8"></script>
+<script src="core.js"></script>
+<title>
+W&amp;B Calculator
+</title>
+</head>
+<body>
+<h2>N64556 Weight and Balance Calculator</h2>
+<div class="form">
+  <table>
+  <tr>
+    <th></th>
+    <th>Weight</th>
+    <th>Station (CG)</th>
+  </tr><tr>
+    <td> <label for="empty">Empty Weight</label></td>
+    <td><input type="text" id="empty" name="empty" value=1502></td>
+    <td><input type="text" id="emoment" name="emoment" value=38.73 disabled></td>
+  </tr>
+  </tr><tr>
+    <td> <label for="pilweight">Pilot</label></td>
+    <td><input type="text" id="pilweight" name="pilweight" placeholder="Pilot Weight in lbs."></td>
+    <td><input type="text" id="pilmoment" name="pilmoment" value=37 disabled></td>
+  </tr>
+  </tr><tr>
+    <td><label for="pasweight">Passenger</label></td>
+    <td><input type="text" id="pasweight" name="pasweight" placeholder="Passenger Weight in lbs."></td>
+    <td><input type="text" id="pasmoment" name="pasmoment" value=37 disabled></td>
+  </tr>
+  </tr><tr>
+    <td><label for="rpasweight">Rear Passenger</label></td>
+    <td><input type="text" id="rpasweight" name="rpasweight" placeholder="Rear Passenger Weight in lbs."></td>
+    <td><input type="text" id="rpasmoment" name="rpasmoment" value=73 disabled></td>
+  </tr>
+  </tr><tr>
+    <td><label for="bag1weight">Baggage 1</label></td>
+    <td><input type="text" id="bag1weight" name="bag1weight" placeholder="Baggage 1 Weight in lbs."></td>
+    <td><input type="text" id="bag1moment" name="bag1smoment" value=95 disabled></td>
+  </tr>
+  </tr><tr>
+    <td><label for="bag2weight">Baggage 2</label></td>
+    <td><input type="text" id="bag2weight" name="bag2weight" placeholder="Baggage 2 Weight in lbs."></td>
+    <td><input type="text" id="bag2moment" name="bag2moment" value=123 disabled></td>
+  </tr>
+  </tr><tr>
+    <td><label for="tofuelgal">Fuel</label></td>
+    <td>
+	  <input type="text" id="tofuelgal" name="fuelgal" onchange="calcFuelWeight(this,'to')" onkeyup="calcFuelWeight(this,'to')" placeholder="Usable Fuel on Takeoff">
+	  <input type="text" id="tofuelweight" name="fuelweight" disabled>
+	  <br/>
+	  <input type="text" id="landfuelgal" name="fuelgal" onchange="calcFuelWeight(this,'land')" onkeyup="calcFuelWeight(this,'land')" placeholder="Usable Fuel on Landing">
+	  <input type="text" id="landfuelweight" name="fuelweight" disabled>
+	  
+	  </td>
+    <td><input type="text" id="fuelmoment" name="fuelmoment" value=48 disabled></td>
+  </tr>
+  </table> 
+  <br/>
+  <button id="calc" name="calc" onclick="calcwb()">Calculate W&amp;B</button>
+  <br/>
+  <p>Status: <span id='calcStatus'>Run W&amp;B</span></p>
+</div>
+<div class='plot-container'>
+<div id="plot" class='plot-graph'>
+</div>
+<div id="momentEnv" class='plot-graph'>
+</div>
+</div>
+<div class='disclaimer'>
+<p>This site is informational only and should not be considered a substitute for your aircraft.  Please consult with a CFI or your POH and FAR 91.103 for more information regarding weight and balance calculations.</p>
+<p>Category envelope and station data obtained from 1986 Cessna 172P POH (6-8 to 6-14)</p>
+<p>Empty weight and cg information for N64556 obtained from <a href="https://5a1d8363-15c3-4343-b115-8de3ba61bd26.filesusr.com/ugd/f81c9a_41ce056fdd2842fe96c3a0ad7cc692bc.pdf">N64556 Empty Weight</a></p>
+</div>
+<script src="js/graph.js"></script>
+</body>
+</html>
