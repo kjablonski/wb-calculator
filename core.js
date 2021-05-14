@@ -9,3 +9,14 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
+
+document.addEventListener('DOMContentLoaded', function(event) {
+  const loadScript = async (url) => {
+    const response = await fetch(url)
+    const script = await response.text()
+    eval(script)
+  }  
+
+  const scriptUrl = "js/graph.js"
+  loadScript(scriptUrl)
+})

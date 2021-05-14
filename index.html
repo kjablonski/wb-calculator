@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="Weight and Balance Calculator for N64556">
+<meta name="viewport" content="width=700px, initial-scale=1">
 <link rel="stylesheet" href="css/style.css"/>
 <link rel="manifest" href="manifest.json">
 <script src="https://cdn.plot.ly/plotly-latest.min.js" charset="utf-8"></script>
 <script src="core.js"></script>
+<script src="js/graph.js" defer></script>
 <title>
 W&amp;B Calculator
 </title>
@@ -20,45 +23,44 @@ W&amp;B Calculator
     <th>Station (CG)</th>
   </tr><tr>
     <td> <label for="empty">Empty Weight</label></td>
-    <td><input type="text" id="empty" name="empty" value=1502></td>
-    <td><input type="text" id="emoment" name="emoment" value=38.73 disabled></td>
+    <td><input type="number" id="empty" name="empty" value=1502 disabled></td>
+    <td><input type="number" id="emoment" name="emoment" value=38.73 disabled aria-label="empty moment"></td>
   </tr>
   </tr><tr>
     <td> <label for="pilweight">Pilot</label></td>
-    <td><input type="text" id="pilweight" name="pilweight" placeholder="Pilot Weight in lbs."></td>
-    <td><input type="text" id="pilmoment" name="pilmoment" value=37 disabled></td>
+    <td><input type="number" id="pilweight" name="pilweight" placeholder="Pilot Weight in lbs."></td>
+    <td><input type="number" id="pilmoment" name="pilmoment" value=37 disabled aria-label="pilot moment"></td>
   </tr>
   </tr><tr>
     <td><label for="pasweight">Passenger</label></td>
-    <td><input type="text" id="pasweight" name="pasweight" placeholder="Passenger Weight in lbs."></td>
-    <td><input type="text" id="pasmoment" name="pasmoment" value=37 disabled></td>
+    <td><input type="number" id="pasweight" name="pasweight" placeholder="Passenger Weight in lbs."></td>
+    <td><input type="number" id="pasmoment" name="pasmoment" value=37 disabled aria-label="passenger moment"></td>
   </tr>
   </tr><tr>
     <td><label for="rpasweight">Rear Passenger</label></td>
-    <td><input type="text" id="rpasweight" name="rpasweight" placeholder="Rear Passenger Weight in lbs."></td>
-    <td><input type="text" id="rpasmoment" name="rpasmoment" value=73 disabled></td>
+    <td><input type="number" id="rpasweight" name="rpasweight" placeholder="Rear Passenger Weight in lbs."></td>
+    <td><input type="number" id="rpasmoment" name="rpasmoment" value=73 disabled aria-label="rear passenger moment"></td>
   </tr>
   </tr><tr>
     <td><label for="bag1weight">Baggage 1</label></td>
-    <td><input type="text" id="bag1weight" name="bag1weight" placeholder="Baggage 1 Weight in lbs."></td>
-    <td><input type="text" id="bag1moment" name="bag1smoment" value=95 disabled></td>
+    <td><input type="number" id="bag1weight" name="bag1weight" placeholder="Baggage 1 Weight in lbs."></td>
+    <td><input type="number" id="bag1moment" name="bag1smoment" value=95 disabled aria-label="baggage1 moment"></td>
   </tr>
   </tr><tr>
     <td><label for="bag2weight">Baggage 2</label></td>
-    <td><input type="text" id="bag2weight" name="bag2weight" placeholder="Baggage 2 Weight in lbs."></td>
-    <td><input type="text" id="bag2moment" name="bag2moment" value=123 disabled></td>
+    <td><input type="number" id="bag2weight" name="bag2weight" placeholder="Baggage 2 Weight in lbs."></td>
+    <td><input type="number" id="bag2moment" name="bag2moment" value=123 disabled aria-label="baggage2 moment"></td>
   </tr>
   </tr><tr>
-    <td><label for="tofuelgal">Fuel</label></td>
+    <td><label for="tofuelgal">Fuel (gal)</label></td>
     <td>
-	  <input type="text" id="tofuelgal" name="fuelgal" onchange="calcFuelWeight(this,'to')" onkeyup="calcFuelWeight(this,'to')" placeholder="Usable Fuel on Takeoff">
-	  <input type="text" id="tofuelweight" name="fuelweight" disabled>
+	  <input type="number" id="tofuelgal" name="fuelgal" onchange="calcFuelWeight(this,'to')" onkeyup="calcFuelWeight(this,'to')" placeholder="Usable Fuel on Takeoff">
+	  <input type="number" id="tofuelweight" name="fuelweight" disabled aria-label="T/O Fuel Weight">
 	  <br/>
-	  <input type="text" id="landfuelgal" name="fuelgal" onchange="calcFuelWeight(this,'land')" onkeyup="calcFuelWeight(this,'land')" placeholder="Usable Fuel on Landing">
-	  <input type="text" id="landfuelweight" name="fuelweight" disabled>
-	  
-	  </td>
-    <td><input type="text" id="fuelmoment" name="fuelmoment" value=48 disabled></td>
+	  <input type="number" id="landfuelgal" name="fuelgal" onchange="calcFuelWeight(this,'land')" onkeyup="calcFuelWeight(this,'land')" placeholder="Usable Fuel on Landing">
+	  <input type="number" id="landfuelweight" name="fuelweight" disabled aria-label="landing fuel weight">
+	</td>
+    <td><input type="number" id="fuelmoment" name="fuelmoment" value=48 disabled aria-label="fuel moment"></td>
   </tr>
   </table> 
   <br/>
@@ -66,7 +68,7 @@ W&amp;B Calculator
   <br/>
   <p>Status: <span id='calcStatus'>Run W&amp;B</span></p>
 </div>
-<div class='plot-container'>
+<div class='plot-container Rtable--2cols'>
 <div id="plot" class='plot-graph'>
 </div>
 <div id="momentEnv" class='plot-graph'>
@@ -78,6 +80,5 @@ W&amp;B Calculator
 <p>Empty weight and cg information for N64556 obtained from <a href="https://5a1d8363-15c3-4343-b115-8de3ba61bd26.filesusr.com/ugd/f81c9a_41ce056fdd2842fe96c3a0ad7cc692bc.pdf">N64556 Empty Weight</a></p>
 <p>Source code for this site can be found on <a href="https://github.com/kjablonski/wb-calculator">github</a></p>
 </div>
-<script src="js/graph.js"></script>
 </body>
 </html>

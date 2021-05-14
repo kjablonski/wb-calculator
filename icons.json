@@ -1,11 +1,4 @@
 {
-  "name": "N64556 W&B",
-  "short_name": "W&B",
-  "theme_color": "#2196f3",
-  "background_color": "#2196f3",
-  "display": "standalone",
-  "scope": "/wb/",
-  "start_url": "/wb/",
   "icons": [
     {
       "src": "windows10/SmallTile.scale-100.png",

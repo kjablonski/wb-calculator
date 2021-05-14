@@ -33,13 +33,22 @@ var layout = {
   xaxis: {
     range: [34, 48],
     autorange: false,
-	fixedrange: true
+	fixedrange: true,
+	automargin: true,
+    title: {
+	    text: 'Airplane CG Location - Inches Aft Datum',
+		standoff: 5
+	}
   },
   yaxis: {
     range: [1500, 2500],
     autorange: false,
-	fixedrange: true
-  }
+	fixedrange: true,
+	title: {
+		text: 'Loaded Airplane Weight (lbs)'
+	}
+  },
+  legend: {"orientation": "h"}
 };
 
 var data = [NormalCat,UtilCat];
@@ -78,14 +87,23 @@ var momEnvLayout = {
   xaxis: {
     range: [45, 115],
     autorange: false,
-	fixedrange: true
+	fixedrange: true,
+	title: {
+		text: 'Airplane Moment / 1000 (lb-in)',
+		standoff: 5
+	}
 	
   },
   yaxis: {
     range: [1500, 2500],
     autorange: false,
-	fixedrange: true
-  }
+	fixedrange: true,
+    title: {
+		text: 'Loaded Airplane Weight (lbs)'
+	}
+  },
+  showlegend: true,
+  legend: {"orientation": "h"} 
 };
 
 var momentEnvData = [normalMomentEnv,utilMomentEnv];

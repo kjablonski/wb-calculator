@@ -1,6 +1,6 @@
-var CACHE_NAME = 'wb-cache-v3';
+var CACHE_NAME = 'wb-cache-v4';
 var urlsToCache = [
-  '/wb',
+  '/wb/',
   '/wb/css/style.css',
   '/wb/js/graph.js',
   '/wb/core.js',
@@ -27,8 +27,9 @@ self.addEventListener('fetch', function(event) {
         // Cache hit - return response
         if (response) {
           return response;
-        }
-        return fetch(event.request);
+        } else {
+          return fetch(event.request);
+		}
       }
     )
   );
