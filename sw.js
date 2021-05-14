@@ -1,5 +1,11 @@
 var CACHE_NAME = 'wb-cache-v4';
-var urlsToCache = [
+var urlsToCache = [  
+  '/wb-calculator/',
+  '/wb-calculator/css/style.css',
+  '/wb-calculator/js/graph.js',
+  '/wb-calculator/core.js',
+  '/wb-calculator/sw.js',
+  '/wb-calculator/manifest.json',
   'https://cdn.plot.ly/plotly-latest.min.js'  
 ];
 
