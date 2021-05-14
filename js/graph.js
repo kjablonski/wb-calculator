@@ -6,10 +6,10 @@ var NormalCat = {
 };
 var normalPoly = [];
 for (i=0;i<NormalCat.x.length;i++){
-	var point = [];
-	point.push(NormalCat.x[i]);
-	point.push(NormalCat.y[i]);
-	normalPoly.push(point);
+    var point = [];
+    point.push(NormalCat.x[i]);
+    point.push(NormalCat.y[i]);
+    normalPoly.push(point);
 }
 var UtilCat = {
   x: [35, 35, 36.5, 40.5,40.5],
@@ -23,30 +23,30 @@ var UtilCat = {
 };
 var utilPoly = [];
 for (i=0;i<UtilCat.x.length;i++){
-	var point = [];
-	point.push(UtilCat.x[i]);
-	point.push(UtilCat.y[i]);
-	utilPoly.push(point);
+    var point = [];
+    point.push(UtilCat.x[i]);
+    point.push(UtilCat.y[i]);
+    utilPoly.push(point);
 }
 var layout = {
   title: 'N64556 W&B CG Limits',
   xaxis: {
     range: [34, 48],
     autorange: false,
-	fixedrange: true,
-	automargin: true,
+    fixedrange: true,
+    automargin: true,
     title: {
-	    text: 'Airplane CG Location - Inches Aft Datum',
-		standoff: 5
-	}
+        text: 'Airplane CG Location - Inches Aft Datum',
+        standoff: 5
+    }
   },
   yaxis: {
     range: [1500, 2500],
     autorange: false,
-	fixedrange: true,
-	title: {
-		text: 'Loaded Airplane Weight (lbs)'
-	}
+    fixedrange: true,
+    title: {
+        text: 'Loaded Airplane Weight (lbs)'
+    }
   },
   legend: {"orientation": "h"}
 };
@@ -56,51 +56,51 @@ var data = [NormalCat,UtilCat];
 Plotly.newPlot('plot', data, layout,{scrollZoom: false,displayModeBar:false,responsive:true});
 
 var normalMomentEnv = {
-	x: [52.5,68,95,113.5,70],
-	y: NormalCat.y,
-	mode: NormalCat.mode,
-	name: NormalCat.name,	
+    x: [52.5,68,95,113.5,70],
+    y: NormalCat.y,
+    mode: NormalCat.mode,
+    name: NormalCat.name,    
 };
-var utilMomentEnv = {	
+var utilMomentEnv = {    
     x: [52.5,68,77,85,60],
-	y: UtilCat.y,
-	mode: UtilCat.mode,
-	name: UtilCat.name,
-	line: UtilCat.line
+    y: UtilCat.y,
+    mode: UtilCat.mode,
+    name: UtilCat.name,
+    line: UtilCat.line
 };
 var normalMomPoly = [];
 for (i=0;i<normalMomentEnv.x.length;i++){
-	var point = [];
-	point.push(normalMomentEnv.x[i]);
-	point.push(normalMomentEnv.y[i]);
-	normalMomPoly.push(point);
+    var point = [];
+    point.push(normalMomentEnv.x[i]);
+    point.push(normalMomentEnv.y[i]);
+    normalMomPoly.push(point);
 }
 var utilMomPoly = [];
 for (i=0;i<utilMomentEnv.x.length;i++){
-	var point = [];
-	point.push(utilMomentEnv.x[i]);
-	point.push(utilMomentEnv.y[i]);
-	utilMomPoly.push(point);
+    var point = [];
+    point.push(utilMomentEnv.x[i]);
+    point.push(utilMomentEnv.y[i]);
+    utilMomPoly.push(point);
 }
 var momEnvLayout = {
   title: 'N64556 W&B CG Moment Envelope',
   xaxis: {
     range: [45, 115],
     autorange: false,
-	fixedrange: true,
-	title: {
-		text: 'Airplane Moment / 1000 (lb-in)',
-		standoff: 5
-	}
-	
+    fixedrange: true,
+    title: {
+        text: 'Airplane Moment / 1000 (lb-in)',
+        standoff: 5
+    }
+    
   },
   yaxis: {
     range: [1500, 2500],
     autorange: false,
-	fixedrange: true,
+    fixedrange: true,
     title: {
-		text: 'Loaded Airplane Weight (lbs)'
-	}
+        text: 'Loaded Airplane Weight (lbs)'
+    }
   },
   showlegend: true,
   legend: {"orientation": "h"} 
@@ -174,43 +174,47 @@ function calcwb() {
     x:[tocg,landcg,emptycg],
     y:[toWeight,landWeight,totalWeight],
     type:'scatter',
-	text: ['Take-off', 'Landing','Zero Fuel'],
-	name: 'CG'
+    text: ['Take-off', 'Landing','Zero Fuel'],
+    name: 'CG'
   };
   data = [NormalCat, UtilCat, wbData];
   Plotly.newPlot('plot', data,layout,{scrollZoom: false,displayModeBar:false,responsive:true});
   
   var envData = {
-	x:[toMoment/1000,landMoment/1000,totalMoment/1000],
+    x:[toMoment/1000,landMoment/1000,totalMoment/1000],
     y: wbData.y,
     type: 'scatter',
-	text: ['Take-off', 'Landing','Zero Fuel'],
-	name: 'Moment'
+    text: ['Take-off', 'Landing','Zero Fuel'],
+    name: 'Moment'
   };
   momentEnvData=[normalMomentEnv, utilMomentEnv, envData];
   Plotly.newPlot('momentEnv', momentEnvData, momEnvLayout,{scrollZoom: false,displayModeBar:false,responsive:true});
   var statText = 'Outside of W&B Limits';
   if(inside([wbData.x[0],wbData.y[0]],normalPoly) &&
      inside([wbData.x[1],wbData.y[1]],normalPoly) &&
-	 inside([envData.x[0],envData.y[0]],normalMomPoly) &&
-     inside([envData.x[1],envData.y[1]],normalMomPoly)) {
-		statText =  'Good for Normal Category';
-		if (inside([wbData.x[0],wbData.y[0]],utilPoly) &&
-            inside([wbData.x[1],wbData.y[1]],utilPoly) && 
-			inside([envData.x[0],envData.y[0]],utilMomPoly) &&
-            inside([envData.x[1],envData.y[1]],utilMomPoly)) {
-				statText = 'Good for Utility Category';
-		}		
+     inside([wbData.x[2],wbData.y[2]],normalPoly) &&
+     inside([envData.x[0],envData.y[0]],normalMomPoly) &&
+     inside([envData.x[1],envData.y[1]],normalMomPoly) &&
+     inside([envData.x[2],envData.y[2]],normalMomPoly) &&) {
+        statText =  'Good for Normal Category';
+        if (inside([wbData.x[0],wbData.y[0]],utilPoly) &&
+            inside([wbData.x[1],wbData.y[1]],utilPoly) &&
+            inside([wbData.x[2],wbData.y[2]],utilPoly) &&
+            inside([envData.x[0],envData.y[0]],utilMomPoly) &&
+            inside([envData.x[1],envData.y[1]],utilMomPoly) &&
+            inside([envData.x[2],envData.y[2]],utilMomPoly)) {
+              statText = 'Good for Utility Category';
+        }
   }
   document.getElementById('calcStatus').innerHTML = statText;
   
 }
 function calcFuelWeight(fuelGal,stage) {
   if(stage === 'to') {
-	document.getElementById('tofuelweight').value = fuelGal.value * 6
+    document.getElementById('tofuelweight').value = fuelGal.value * 6
   }
   else if (stage === 'land') {
-	document.getElementById('landfuelweight').value = fuelGal.value * 6
+    document.getElementById('landfuelweight').value = fuelGal.value * 6
   }
 }
 function inside(point, vs) {
