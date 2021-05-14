@@ -4,8 +4,8 @@
   "theme_color": "#2196f3",
   "background_color": "#2196f3",
   "display": "standalone",
-  "scope": "/wb/",
-  "start_url": "/wb/",
+  "scope": "/wb-calculator/",
+  "start_url": "/wb-calculator/",
   "icons": [
     {
       "src": "windows10/SmallTile.scale-100.png",
