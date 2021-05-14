@@ -195,7 +195,7 @@ function calcwb() {
      inside([wbData.x[2],wbData.y[2]],normalPoly) &&
      inside([envData.x[0],envData.y[0]],normalMomPoly) &&
      inside([envData.x[1],envData.y[1]],normalMomPoly) &&
-     inside([envData.x[2],envData.y[2]],normalMomPoly) &&) {
+     inside([envData.x[2],envData.y[2]],normalMomPoly)) {
         statText =  'Good for Normal Category';
         if (inside([wbData.x[0],wbData.y[0]],utilPoly) &&
             inside([wbData.x[1],wbData.y[1]],utilPoly) &&
