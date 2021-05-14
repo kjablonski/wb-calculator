@@ -1,5 +1,11 @@
 var CACHE_NAME = 'wb-cache-v4';
 var urlsToCache = [
+  '/wb/',
+  '/wb/css/style.css',
+  '/wb/js/graph.js',
+  '/wb/core.js',
+  '/wb/sw.js',
+  '/wb/manifest.json',
   'https://cdn.plot.ly/plotly-latest.min.js'  
 ];
 
