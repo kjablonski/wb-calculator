@@ -67,6 +67,32 @@ W&amp;B Calculator
   <button id="calc" name="calc" onclick="calcwb()">Calculate W&amp;B</button>
   <br/>
   <p>Status: <span id='calcStatus'>Run W&amp;B</span></p>
+  <table class="status">
+    <tr>
+      <th>Stage</th>
+      <th>Weight</th>
+      <th>CG Location</th>
+      <th>Moment / 1000</th>
+    </tr>
+    <tr>
+      <td>T/O</td>
+      <td id='toWeight'></td>
+	  <td id='tocg'></td>
+	  <td id='toMoment'></td>
+    </tr>
+    <tr>
+      <td>Landing</td>
+      <td id='landWeight'></td>
+	  <td id='landcg'></td>
+	  <td id='landMoment'></td>
+    </tr>
+    <tr>
+      <td>Zero Fuel</td>
+      <td id='zfWeight'></td>
+	  <td id='zfcg'></td>
+	  <td id='zfMoment'></td>
+    </tr>
+  </table>
 </div>
 <div class='plot-container Rtable--2cols'>
 <div id="plot" class='plot-graph'>
