@@ -208,6 +208,18 @@ function calcwb() {
   }
   document.getElementById('calcStatus').innerHTML = statText;
   
+  document.getElementById('toWeight').innerHTML = toWeight + ' lbs.';
+  document.getElementById('landWeight').innerHTML = landWeight + ' lbs.';
+  document.getElementById('zfWeight').innerHTML = totalWeight + ' lbs.';
+  
+  document.getElementById('tocg').innerHTML =      tocg.toFixed(2);
+  document.getElementById('landcg').innerHTML =  landcg.toFixed(2);
+  document.getElementById('zfcg').innerHTML =   emptycg.toFixed(2);
+  
+  document.getElementById('toMoment').innerHTML =      (toMoment/1000).toFixed(2);
+  document.getElementById('landMoment').innerHTML =  (landMoment/1000).toFixed(2);
+  document.getElementById('zfMoment').innerHTML =   (totalMoment/1000).toFixed(2);
+  
 }
 function calcFuelWeight(fuelGal,stage) {
   if(stage === 'to') {
