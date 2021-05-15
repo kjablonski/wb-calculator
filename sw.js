@@ -1,5 +1,5 @@
 var CACHE_NAME = 'wb-cache-v4';
-var urlsToCache = [
+var urlsToCache = [  
   '/wb-calculator/',
   '/wb-calculator/css/style.css',
   '/wb-calculator/js/graph.js',
