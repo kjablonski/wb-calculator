@@ -1,19 +1,33 @@
-var NormalCat = {
-  x: [35, 35, 39.5, 47.3,47.3],
-  y: [1500, 1950, 2400, 2400,1500],
+var NormalCat = {};
+var normalPoly = [];
+var UtilCat = {};
+var utilPoly = [];
+var layout = {};
+var plotdata = [];
+var normalMomentEnv = {};
+var normalMomPoly = [];
+var utilMomentEnv = {};
+var utilMomPoly = [];
+var momEnvLayout = {};
+var momentEnvData = [];
+
+function doGraph() {
+  NormalCat = {
+  x: selectedAC.data.CG.normalCat.x,
+  y: selectedAC.data.CG.normalCat.y,
   mode: 'lines',
   name: 'Normal'
 };
-var normalPoly = [];
+normalPoly = [];
 for (i=0;i<NormalCat.x.length;i++){
     var point = [];
     point.push(NormalCat.x[i]);
     point.push(NormalCat.y[i]);
     normalPoly.push(point);
 }
-var UtilCat = {
-  x: [35, 35, 36.5, 40.5,40.5],
-  y: [1500, 1950, 2100, 2100,1500],
+UtilCat = {
+  x: selectedAC.data.CG.utilCat.x,
+  y: selectedAC.data.CG.utilCat.y,
   mode: 'lines',
   name: 'Utility',
   line: {
@@ -21,17 +35,17 @@ var UtilCat = {
     width: 4
   }
 };
-var utilPoly = [];
+utilPoly = [];
 for (i=0;i<UtilCat.x.length;i++){
     var point = [];
     point.push(UtilCat.x[i]);
     point.push(UtilCat.y[i]);
     utilPoly.push(point);
 }
-var layout = {
-  title: 'N64556 W&B CG Limits',
+layout = {
+  title: selectedAC.id + ' W&B CG Limits',
   xaxis: {
-    range: [34, 48],
+    range: [Math.min(...selectedAC.data.CG.normalCat.x)-1, Math.max(...selectedAC.data.CG.normalCat.x)+1],
     autorange: false,
     fixedrange: true,
     automargin: true,
@@ -41,7 +55,7 @@ var layout = {
     }
   },
   yaxis: {
-    range: [1500, 2500],
+    range: [Math.min(...selectedAC.data.CG.normalCat.y), Math.max(...selectedAC.data.CG.normalCat.y)+100],
     autorange: false,
     fixedrange: true,
     title: {
@@ -51,41 +65,41 @@ var layout = {
   legend: {"orientation": "h"}
 };
 
-var data = [NormalCat,UtilCat];
+plotdata = [NormalCat,UtilCat];
 
-Plotly.newPlot('plot', data, layout,{scrollZoom: false,displayModeBar:false,responsive:true});
+//Plotly.newPlot('plot', plotdata, layout,{scrollZoom: false,displayModeBar:false,responsive:true});
 
-var normalMomentEnv = {
-    x: [52.5,68,95,113.5,70],
+normalMomentEnv = {
+    x: selectedAC.data.Moment.normalCat.x,
     y: NormalCat.y,
     mode: NormalCat.mode,
     name: NormalCat.name,    
 };
-var utilMomentEnv = {    
-    x: [52.5,68,77,85,60],
+utilMomentEnv = {    
+    x: selectedAC.data.Moment.utilCat.x,
     y: UtilCat.y,
     mode: UtilCat.mode,
     name: UtilCat.name,
     line: UtilCat.line
 };
-var normalMomPoly = [];
+normalMomPoly = [];
 for (i=0;i<normalMomentEnv.x.length;i++){
     var point = [];
     point.push(normalMomentEnv.x[i]);
     point.push(normalMomentEnv.y[i]);
     normalMomPoly.push(point);
 }
-var utilMomPoly = [];
+utilMomPoly = [];
 for (i=0;i<utilMomentEnv.x.length;i++){
     var point = [];
     point.push(utilMomentEnv.x[i]);
     point.push(utilMomentEnv.y[i]);
     utilMomPoly.push(point);
 }
-var momEnvLayout = {
-  title: 'N64556 W&B CG Moment Envelope',
+momEnvLayout = {
+  title: selectedAC.id + ' W&B CG Moment Envelope',
   xaxis: {
-    range: [45, 115],
+    range: [Math.min(...selectedAC.data.Moment.normalCat.x)-1, Math.max(...selectedAC.data.Moment.normalCat.x)+1],
     autorange: false,
     fixedrange: true,
     title: {
@@ -95,7 +109,7 @@ var momEnvLayout = {
     
   },
   yaxis: {
-    range: [1500, 2500],
+    range: [Math.min(...selectedAC.data.Moment.normalCat.y), Math.max(...selectedAC.data.Moment.normalCat.y)+100],
     autorange: false,
     fixedrange: true,
     title: {
@@ -106,10 +120,11 @@ var momEnvLayout = {
   legend: {"orientation": "h"} 
 };
 
-var momentEnvData = [normalMomentEnv,utilMomentEnv];
-Plotly.newPlot('momentEnv', momentEnvData, momEnvLayout,{scrollZoom: false,displayModeBar:false,responsive:true});
-
+momentEnvData = [normalMomentEnv,utilMomentEnv];
+//Plotly.newPlot('momentEnv', momentEnvData, momEnvLayout,{scrollZoom: false,displayModeBar:false,responsive:true});
+}
 function calcwb() {
+  doGraph();
   var tocg = 0;
   var landcg = 0;
   var emptycg = 0;
@@ -177,8 +192,8 @@ function calcwb() {
     text: ['Take-off', 'Landing','Zero Fuel'],
     name: 'CG'
   };
-  data = [NormalCat, UtilCat, wbData];
-  Plotly.newPlot('plot', data,layout,{scrollZoom: false,displayModeBar:false,responsive:true});
+  plotdata = [NormalCat, UtilCat, wbData];
+  Plotly.newPlot('plot', plotdata,layout,{scrollZoom: false,displayModeBar:false,responsive:true});
   
   var envData = {
     x:[toMoment/1000,landMoment/1000,totalMoment/1000],
