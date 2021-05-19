@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="css/style.css"/>
 <link rel="manifest" href="manifest.json">
 <script src="https://cdn.plot.ly/plotly-latest.min.js" charset="utf-8" defer></script>
+<script src="js/aircraft.js" ></script>
 <script src="core.js"></script>
 <script src="js/graph.js" defer></script>
 <title>
@@ -14,7 +15,7 @@ W&amp;B Calculator
 </title>
 </head>
 <body>
-<h2>N64556 Weight and Balance Calculator</h2>
+<h2><select name="aircraft" id="aircraft" onchange="acChange(this.value)"><option value=""></option></select> Weight and Balance Calculator</h2>
 <div class="form">
   <table>
   <tr>
