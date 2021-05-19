@@ -97,11 +97,11 @@ const aircraftData = [{
           "arm": 48
         }
       }
-}}
+}},
 {
   "id":"N21489",
   "data" : {
-      "Type": "PA-28",
+      "Type": "PA-28-181",
       "emptyWeightURL": "https://5a1d8363-15c3-4343-b115-8de3ba61bd26.filesusr.com/ugd/f81c9a_07240519e394493595e5d86aa49bd0cc.pdf",
       "CG":{
 	      "normalCat" : {
