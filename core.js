@@ -11,17 +11,9 @@ if ('serviceWorker' in navigator) {
 }
 
 document.addEventListener('DOMContentLoaded', function(event) {
-  const loadScript = async (url) => {
-    const response = await fetch(url)
-    const script = await response.text()
-    eval(script)
-  }
   aircraftData.forEach(function(aircraft) {
     document.getElementById('aircraft').innerHTML += '<option value="'+aircraft.id+'">'+aircraft.id+'</option>';
-  });    
-
-  const scriptUrl = "js/graph.js"
-  loadScript(scriptUrl)
+  });   
   
   const searchParams = new URLSearchParams(window.location.search);
   if(searchParams.has('aircraft')) {
