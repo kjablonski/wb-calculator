@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="Weight and Balance Calculator for N64556">
+<meta name="description" content="Weight and Balance Calculator">
 <meta name="viewport" content="width=700px, initial-scale=1">
 <link rel="stylesheet" href="css/style.css"/>
 <link rel="manifest" href="manifest.json">
@@ -24,33 +24,33 @@ W&amp;B Calculator
     <th>Station (CG)</th>
   </tr><tr>
     <td> <label for="empty">Empty Weight</label></td>
-    <td><input type="number" id="empty" name="empty" value=1502 disabled></td>
-    <td><input type="number" id="emoment" name="emoment" value=38.73 disabled aria-label="empty moment"></td>
+    <td><input type="number" id="empty" name="empty" disabled></td>
+    <td><input type="number" id="emoment" name="emoment" disabled aria-label="empty moment"></td>
   </tr>
   </tr><tr>
     <td> <label for="pilweight">Pilot</label></td>
     <td><input type="number" id="pilweight" name="pilweight" placeholder="Pilot Weight in lbs."></td>
-    <td><input type="number" id="pilmoment" name="pilmoment" value=37 disabled aria-label="pilot moment"></td>
+    <td><input type="number" id="pilmoment" name="pilmoment" disabled aria-label="pilot moment"></td>
   </tr>
   </tr><tr>
     <td><label for="pasweight">Passenger</label></td>
     <td><input type="number" id="pasweight" name="pasweight" placeholder="Passenger Weight in lbs."></td>
-    <td><input type="number" id="pasmoment" name="pasmoment" value=37 disabled aria-label="passenger moment"></td>
+    <td><input type="number" id="pasmoment" name="pasmoment" disabled aria-label="passenger moment"></td>
   </tr>
   </tr><tr>
     <td><label for="rpasweight">Rear Passenger</label></td>
     <td><input type="number" id="rpasweight" name="rpasweight" placeholder="Rear Passenger Weight in lbs."></td>
-    <td><input type="number" id="rpasmoment" name="rpasmoment" value=73 disabled aria-label="rear passenger moment"></td>
+    <td><input type="number" id="rpasmoment" name="rpasmoment" disabled aria-label="rear passenger moment"></td>
   </tr>
   </tr><tr>
     <td><label for="bag1weight">Baggage 1</label></td>
     <td><input type="number" id="bag1weight" name="bag1weight" placeholder="Baggage 1 Weight in lbs."></td>
-    <td><input type="number" id="bag1moment" name="bag1smoment" value=95 disabled aria-label="baggage1 moment"></td>
+    <td><input type="number" id="bag1moment" name="bag1smoment" disabled aria-label="baggage1 moment"></td>
   </tr>
   </tr><tr>
     <td><label for="bag2weight">Baggage 2</label></td>
     <td><input type="number" id="bag2weight" name="bag2weight" placeholder="Baggage 2 Weight in lbs."></td>
-    <td><input type="number" id="bag2moment" name="bag2moment" value=123 disabled aria-label="baggage2 moment"></td>
+    <td><input type="number" id="bag2moment" name="bag2moment" disabled aria-label="baggage2 moment"></td>
   </tr>
   </tr><tr>
     <td><label for="tofuelgal">Fuel (gal)</label></td>
@@ -61,7 +61,7 @@ W&amp;B Calculator
 	  <input type="number" id="landfuelgal" name="fuelgal" onchange="calcFuelWeight(this,'land')" onkeyup="calcFuelWeight(this,'land')" placeholder="Usable Fuel on Landing">
 	  <input type="number" id="landfuelweight" name="fuelweight" disabled aria-label="landing fuel weight">
 	</td>
-    <td><input type="number" id="fuelmoment" name="fuelmoment" value=48 disabled aria-label="fuel moment"></td>
+    <td><input type="number" id="fuelmoment" name="fuelmoment" disabled aria-label="fuel moment"></td>
   </tr>
   </table> 
   <br/>
