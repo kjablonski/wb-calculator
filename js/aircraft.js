@@ -3,6 +3,7 @@ const aircraftData = [{
     "data" : {
       "Type" : "C172P",
       "emptyWeightURL": "https://5a1d8363-15c3-4343-b115-8de3ba61bd26.filesusr.com/ugd/f81c9a_41ce056fdd2842fe96c3a0ad7cc692bc.pdf",
+      "POHLocation": "1986 Cessna 172P POH (6-8 to 6-14)",
       "CG":{
 	      "normalCat" : {
           "x" : [35, 35, 39.5, 47.3,47.3],
@@ -53,6 +54,7 @@ const aircraftData = [{
     "data" : {
       "Type" : "C172P",
       "emptyWeightURL": "https://5a1d8363-15c3-4343-b115-8de3ba61bd26.filesusr.com/ugd/f81c9a_5eb67911c96949228999638f1ca92850.pdf",
+      "POHLocation": "1986 Cessna 172P POH (6-8 to 6-14)",
       "CG":{
 	      "normalCat" : {
           "x" : [35, 35, 39.5, 47.3,47.3],
@@ -103,6 +105,7 @@ const aircraftData = [{
   "data" : {
       "Type": "PA-28-181",
       "emptyWeightURL": "https://5a1d8363-15c3-4343-b115-8de3ba61bd26.filesusr.com/ugd/f81c9a_07240519e394493595e5d86aa49bd0cc.pdf",
+      "POHLocation": "TBD",
       "CG":{
 	      "normalCat" : {
           "x" : [82,82,88.6,93,93],

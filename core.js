@@ -22,10 +22,15 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
   const scriptUrl = "js/graph.js"
   loadScript(scriptUrl)
+  
+  const searchParams = new URLSearchParams(window.location.search);
+  if(searchParams.has('aircraft')) {
+    document.getElementById('aircraft').value=searchParams.get('aircraft');
+    acChange(searchParams.get('aircraft'));
+  }
 })
 var selectedAC = {};
 function acChange(selector) {
-  console.log(selector);
   selectedAC = aircraftData.find(aircraft => aircraft.id === selector);
   document.getElementById('empty').value = selectedAC.data.Stations.empty.weight;
   document.getElementById('emoment').value = selectedAC.data.Stations.empty.arm;
@@ -44,4 +49,11 @@ function acChange(selector) {
     document.getElementById('bag2moment').value = selectedAC.data.Stations.baggage2.arm;
   }
   document.getElementById('fuelmoment').value = selectedAC.data.Stations.fuel.arm;
+  document.getElementById('aircraftID').innerHTML = selectedAC.id;
+  document.getElementById('ewLink').innerHTML = selectedAC.id + ' Empty Weight';
+  document.getElementById('aircraftID').href = selectedAC.data.emptyWeightURL;
+  document.getElementById('pohLocation').innerHTML = selectedAC.data.POHLocation;
+  document.getElementById('catDisclaim').hidden = false;
+  document.getElementById('POHDisclaim').hidden = false;
+  
 }
