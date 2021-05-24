@@ -12,7 +12,7 @@ if ('serviceWorker' in navigator) {
 
 document.addEventListener('DOMContentLoaded', function(event) {
   aircraftData.forEach(function(aircraft) {
-    document.getElementById('aircraft').innerHTML += '<option value="'+aircraft.id+'">'+aircraft.id+'</option>';
+    document.getElementById('aircraft').innerHTML += '<option value="'+aircraft.id+'">'+aircraft.data.Type+' - '+aircraft.id+'</option>';
   });   
   
   const searchParams = new URLSearchParams(window.location.search);
