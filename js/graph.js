@@ -25,6 +25,14 @@ for (i=0;i<NormalCat.x.length;i++){
     point.push(NormalCat.y[i]);
     normalPoly.push(point);
 }
+momNormx = [];
+momutilx = [];
+for(var i=0;i<selectedAC.data.CG.normalCat.x.length;i++) {
+    momNormx.push(selectedAC.data.CG.normalCat.x[i]*selectedAC.data.CG.normalCat.y[i]/1000);
+}
+for(var i=0;i<selectedAC.data.CG.utilCat.x.length;i++) {
+    momutilx.push(selectedAC.data.CG.utilCat.x[i]*selectedAC.data.CG.utilCat.y[i]/1000);
+}
 UtilCat = {
   x: selectedAC.data.CG.utilCat.x,
   y: selectedAC.data.CG.utilCat.y,
@@ -70,13 +78,13 @@ plotdata = [NormalCat,UtilCat];
 //Plotly.newPlot('plot', plotdata, layout,{scrollZoom: false,displayModeBar:false,responsive:true});
 
 normalMomentEnv = {
-    x: selectedAC.data.Moment.normalCat.x,
+    x: momNormx,
     y: NormalCat.y,
     mode: NormalCat.mode,
     name: NormalCat.name,    
 };
 utilMomentEnv = {    
-    x: selectedAC.data.Moment.utilCat.x,
+    x: momutilx,
     y: UtilCat.y,
     mode: UtilCat.mode,
     name: UtilCat.name,
@@ -99,7 +107,7 @@ for (i=0;i<utilMomentEnv.x.length;i++){
 momEnvLayout = {
   title: selectedAC.id + ' W&B CG Moment Envelope',
   xaxis: {
-    range: [Math.min(...selectedAC.data.Moment.normalCat.x)-1, Math.max(...selectedAC.data.Moment.normalCat.x)+1],
+    range: [Math.min(...normalMomentEnv.x)-1, Math.max(...normalMomentEnv.x)+1],
     autorange: false,
     fixedrange: true,
     title: {
@@ -109,7 +117,7 @@ momEnvLayout = {
     
   },
   yaxis: {
-    range: [Math.min(...selectedAC.data.Moment.normalCat.y), Math.max(...selectedAC.data.Moment.normalCat.y)+100],
+    range: [Math.min(...normalMomentEnv.y), Math.max(...normalMomentEnv.y)+100],
     autorange: false,
     fixedrange: true,
     title: {
