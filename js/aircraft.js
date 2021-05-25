@@ -333,5 +333,87 @@ const aircraftData = [{
           "CG":34
         }
       }
+}},
+{
+  "id":"N6199B",
+  "data" : {
+      "Type": "PA-28-161",
+      "emptyWeightURL": "https://5a1d8363-15c3-4343-b115-8de3ba61bd26.filesusr.com/ugd/83af81_31d441c3cd894d928b06843426582418.pdf",
+      "POHLocation": "TBD",
+      "CG":{
+	      "normalCat" : {
+          "x" : [83,83,87,93,93],
+          "y" : [1200,1950,2325,2325,1200]
+        },
+	      "utilCat": {
+          "x":[83,83,83.8,93,93],
+          "y":[1200,1950,2020,2020,1200]
+		    }
+	    },
+      "Stations" :{
+        "empty" : {
+          "weight": 1498.0,
+          "arm": 86.34
+        },
+        "pilot": {
+          "arm": 80.5
+        },
+        "copilot": {
+          "arm": 80.5
+        },
+        "rearPass": {
+          "arm": 118.1
+        },
+        "baggage1": {
+          "arm": 142.8
+        },
+        "baggage2": {
+          "arm": 0
+        },
+        "fuel": {
+          "arm": 95
+        }
+      }
+}},
+{
+  "id":"N30117",
+  "data" : {
+      "Type": "PA-28-161",
+      "emptyWeightURL": "https://5a1d8363-15c3-4343-b115-8de3ba61bd26.filesusr.com/ugd/f81c9a_4e36b5e1bb28489780abb1a732197a6f.pdf",
+      "POHLocation": "TBD",
+      "CG":{
+	      "normalCat" : {
+          "x" : [83,83,87,93,93],
+          "y" : [1200,1950,2325,2325,1200]
+        },
+	      "utilCat": {
+          "x":[83,83,83.8,93,93],
+          "y":[1200,1950,2020,2020,1200]
+		    }
+	    },
+      "Stations" :{
+        "empty" : {
+          "weight": 1519,
+          "arm": 87.07
+        },
+        "pilot": {
+          "arm": 80.5
+        },
+        "copilot": {
+          "arm": 80.5
+        },
+        "rearPass": {
+          "arm": 118.1
+        },
+        "baggage1": {
+          "arm": 142.8
+        },
+        "baggage2": {
+          "arm": 0
+        },
+        "fuel": {
+          "arm": 95
+        }
+      }
 }}
 ]

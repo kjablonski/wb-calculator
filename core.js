@@ -23,7 +23,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
 })
 var selectedAC = {};
 function acChange(selector) {
+  
   selectedAC = aircraftData.find(aircraft => aircraft.id === selector);
+  document.title = selectedAC.id + ' - W&B Calculator';
   document.getElementById('empty').value = selectedAC.data.Stations.empty.weight;
   document.getElementById('emoment').value = selectedAC.data.Stations.empty.arm;
   document.getElementById('pilmoment').value = selectedAC.data.Stations.pilot.arm;
@@ -43,7 +45,7 @@ function acChange(selector) {
   document.getElementById('fuelmoment').value = selectedAC.data.Stations.fuel.arm;
   document.getElementById('aircraftID').innerHTML = selectedAC.id;
   document.getElementById('ewLink').innerHTML = selectedAC.id + ' Empty Weight';
-  document.getElementById('aircraftID').href = selectedAC.data.emptyWeightURL;
+  document.getElementById('ewLink').href = selectedAC.data.emptyWeightURL;
   document.getElementById('pohLocation').innerHTML = selectedAC.data.POHLocation;
   document.getElementById('catDisclaim').hidden = false;
   document.getElementById('POHDisclaim').hidden = false;
