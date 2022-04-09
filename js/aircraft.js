@@ -415,5 +415,46 @@ const aircraftData = [{
           "arm": 95
         }
       }
+}},
+{
+  "id":"N7530J",
+  "data" : {
+      "Type": "PA-28R-201",
+      "emptyWeightURL": "https://www.unitedflight.com/_files/ugd/f81c9a_2fa36590f042468cabbe880def90fcba.pdf",
+      "POHLocation": "TBD",
+      "CG":{
+	      "normalCat" : {
+          "x" : [82,82,88.9,91.5,91.5],
+          "y" : [1500,2375,2750,2750,1500]
+        },
+	      "utilCat": {
+          "x":[],
+          "y":[]
+		    }
+	    },
+      "Stations" :{
+        "empty" : {
+          "weight": 1518.11,
+          "arm": 86.09
+        },
+        "pilot": {
+          "arm": 80.5
+        },
+        "copilot": {
+          "arm": 80.5
+        },
+        "rearPass": {
+          "arm": 118.1
+        },
+        "baggage1": {
+          "arm": 142.8
+        },
+        "baggage2": {
+          "arm": 0
+        },
+        "fuel": {
+          "arm": 95
+        }
+      }
 }}
 ]

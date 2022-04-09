@@ -231,9 +231,9 @@ function calcwb() {
   }
   document.getElementById('calcStatus').innerHTML = statText;
   
-  document.getElementById('toWeight').innerHTML = toWeight + ' lbs.';
-  document.getElementById('landWeight').innerHTML = landWeight + ' lbs.';
-  document.getElementById('zfWeight').innerHTML = totalWeight + ' lbs.';
+  document.getElementById('toWeight').innerHTML =      toWeight.toFixed(2) + ' lbs.';
+  document.getElementById('landWeight').innerHTML =  landWeight.toFixed(2) + ' lbs.';
+  document.getElementById('zfWeight').innerHTML =   totalWeight.toFixed(2) + ' lbs.';
   
   document.getElementById('tocg').innerHTML =      tocg.toFixed(2);
   document.getElementById('landcg').innerHTML =  landcg.toFixed(2);
