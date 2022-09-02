@@ -163,6 +163,47 @@ const aircraftData = [{
       }
 }},
 {
+    "id":"N77518",
+    "data" : {
+      "Type" : "C172N",
+      "emptyWeightURL": "https://www.unitedflight.com/_files/ugd/f81c9a_9b5f4b06033243f29d1548d7aae36ebc.pdf",
+      "POHLocation": "1979 Cessna 172N POH (6-7 to 6-13)",
+      "CG":{
+	      "normalCat" : {
+          "x" : [35, 35, 38.5, 47.3,47.3],
+          "y" : [1500, 1950, 2300, 2300,1500]
+        },
+	      "utilCat": {
+          "x": [35, 35, 35.5, 40.5,40.5],
+          "y": [1500, 1950, 2000, 2000,1500]
+		    }
+	    },
+      "Stations" :{
+        "empty" : {
+          "weight": 1465.416,
+          "arm": 38.912
+        },
+        "pilot": {
+          "arm": 37
+        },
+        "copilot": {
+          "arm": 37
+        },
+        "rearPass": {
+          "arm": 73
+        },
+        "baggage1": {
+          "arm": 95
+        },
+        "baggage2": {
+          "arm": 123
+        },
+        "fuel": {
+          "arm": 46
+        }
+      }
+}},		      
+{
     "id":"N1966F",
     "data" : {
       "Type" : "C172N",
